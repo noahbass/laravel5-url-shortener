@@ -20,6 +20,10 @@ CACHE_DRIVER=file
 SESSION_DRIVER=file
 ```
 
+### testing
+
+Tests are in `/tests/`. Run them with `vendor/bin/phpunit`.
+
 ### panel and authentication
 
 admin panel: `/panel`
