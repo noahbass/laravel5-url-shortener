@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Urls;
 use App\Http\Requests\CreateUrlRequest;
+use App\Http\Requests\UpdateUrlRequest;
 
 class SlugController extends Controller {
 
