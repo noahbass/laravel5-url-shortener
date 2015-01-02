@@ -1,5 +1,7 @@
 ## laravel 5 url shortener
 
+A sample laravel 5 app.
+
 ### .env
 
 create a `.env` file for configuration:
@@ -18,7 +20,9 @@ CACHE_DRIVER=file
 SESSION_DRIVER=file
 ```
 
-### authentication
+### panel and authentication
+
+admin panel: `/panel`
 
 login: `/auth/login`
 
