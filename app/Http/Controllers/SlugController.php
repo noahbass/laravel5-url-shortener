@@ -117,7 +117,7 @@ class SlugController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(CreateUrlRequest $request, $id)
+	public function update(UpdateUrlRequest $request, $id)
 	{
 		$r = Urls::find($id);
 		$r->slug  = $request->slug;
