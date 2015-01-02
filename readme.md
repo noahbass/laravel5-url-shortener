@@ -1,4 +1,4 @@
-## laravel 5 url shortener
+## laravel 5 url shortener [![Build Status](https://travis-ci.org/noahbass/laravel5-url-shortener.svg?branch=develop)](https://travis-ci.org/noahbass/laravel5-url-shortener)
 
 A sample laravel 5 app.
 
