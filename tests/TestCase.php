@@ -2,6 +2,13 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
+	public function setUp()
+	{
+		parent::setUp();
+
+		$this->prepareForTests();
+	}
+
 	/**
 	 * Creates the application.
 	 *
@@ -14,6 +21,11 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 		$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
 		return $app;
+	}
+
+	public function prepareForTests()
+	{
+		Artisan::call('migrate');
 	}
 
 }

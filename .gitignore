@@ -8,3 +8,5 @@ Thumbs.db
 
 adminer
 adminer.php
+
+*.sqlite
