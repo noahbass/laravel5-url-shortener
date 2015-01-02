@@ -17,7 +17,7 @@ class CreateUrlsTable extends Migration {
 			$table->increments('id');
 			$table->string('slug')->unique();
 			$table->text('dist');
-			$table->string('title');
+			$table->string('title')->nullable();
 			$table->integer('clicks');
 			$table->timestamps();
 		});
