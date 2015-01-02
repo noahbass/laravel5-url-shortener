@@ -9,5 +9,4 @@ APP_DIR="$( dirname "${REPO_DIR}" )"
 
 cd $REPO_DIR
 
-$APP_DIR/bin/php artisan migrate
-
+php artisan migrate
