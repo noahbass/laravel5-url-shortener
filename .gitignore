@@ -13,3 +13,4 @@ adminer.php
 
 *.iml
 .idea/
+_ide_helper.php
