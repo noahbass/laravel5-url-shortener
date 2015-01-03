@@ -24,7 +24,7 @@
 				<tr>
 					<td>{{ $u->id }}</td>
 					<td>{{ $u->slug }}</td>
-					<td>{{ $u->dist }}</td>
+					<td><a href="{{ $u->dist }}">{{ $u->dist }}</a></td>
 					<td>{{ substr($u->title, 0, 50) }}</td>
 					<td>{{ $u->clicks }}</td>
 					<td>{{ $u->created_at }}</td>
