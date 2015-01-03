@@ -1,6 +1,7 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CreateUrlRequest extends Request {
 
@@ -34,6 +35,9 @@ class CreateUrlRequest extends Request {
 	 */
 	public function sanitize()
 	{
+		// add 'user_id' to array
+		$this['user_id'] = Auth::user()->id;
+
 		return $this->all();
 	}
 

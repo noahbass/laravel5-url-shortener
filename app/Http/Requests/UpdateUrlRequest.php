@@ -1,6 +1,7 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateUrlRequest extends Request {
 
@@ -34,6 +35,9 @@ class UpdateUrlRequest extends Request {
 	 */
 	public function sanitize()
 	{
+		// get the user_id
+		$this['user_id'] = Auth::user()->id;
+
 		return $this->all();
 	}
 

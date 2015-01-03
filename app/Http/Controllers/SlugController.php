@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Urls;
 use App\Http\Requests\CreateUrlRequest;
@@ -41,7 +42,7 @@ class SlugController extends Controller {
 	 */
 	public function index()
 	{
-		$urls = Urls::orderBy('created_at', 'desc')->get();
+		$urls = Urls::where('user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
 		return view('urls.index')
 			->with('urls', $urls);
@@ -66,10 +67,11 @@ class SlugController extends Controller {
 	public function store(CreateUrlRequest $request)
 	{
 		$r = new Urls;
-		$r->slug   = $request->slug;
-		$r->dist   = $request->dist;
-		$r->title  = $this->getTitle($request->dist);
-		$r->clicks = 0;
+		$r->user_id = $request->user_id;
+		$r->slug    = $request->slug;
+		$r->dist    = $request->dist;
+		$r->title   = $this->getTitle($request->dist);
+		$r->clicks  = 0;
 		$r->save();
 
 		return redirect('panel');
@@ -121,10 +123,13 @@ class SlugController extends Controller {
 	public function update(UpdateUrlRequest $request, $id)
 	{
 		$r = Urls::find($id);
-		$r->slug  = $request->slug;
-		$r->dist  = $request->dist;
-		$r->title = $this->getTitle($request->dist);
-		$r->save();
+
+		if($request->user_id === $r->user_id) {
+			$r->slug = $request->slug;
+			$r->dist = $request->dist;
+			$r->title = $this->getTitle($request->dist);
+			$r->save();
+		}
 
 		return redirect('panel');
 	}
