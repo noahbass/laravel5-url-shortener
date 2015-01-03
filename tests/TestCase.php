@@ -1,5 +1,7 @@
 <?php
 
+use Laracasts\TestDummy\Factory;
+
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 	public function setUp()
@@ -25,7 +27,11 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 	public function prepareForTests()
 	{
+		// migrate tables
 		Artisan::call('migrate');
+
+		// create some resources
+		Factory::times(100)->create('App\Urls');
 	}
 
 }
