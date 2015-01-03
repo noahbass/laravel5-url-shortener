@@ -3,6 +3,8 @@
 use Laracasts\TestDummy\Factory;
 use Laracasts\TestDummy\DbTestCase;
 
+use App\Urls;
+
 class UrlTest extends TestCase {
 
 	/**
@@ -13,7 +15,7 @@ class UrlTest extends TestCase {
 	public function testIndex()
 	{
 		// create some entries for redirects
-		$entries = Factory::times(100)->create('App\Urls');
+		$entries = Urls::all();
 
 		// test each redirect
 		foreach($entries as $entry) {
