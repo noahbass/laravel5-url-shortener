@@ -32,8 +32,8 @@
 						<a href="{{ URL::to('panel/' . $u->id . '/edit')  }}" class="btn btn-success btn-block btn-sm">edit</a>
 					</td>
 					<td>
-						{!! Form::open(array('url' => URL::to('panel/' . $u->id), 'method' => 'DELETE')) !!}
-							{!! Form::button('remove', array(
+						{!! Form::open(['route' => ['panel.destroy', $u->id], 'method' => 'DELETE']) !!}
+							{!! Form::submit('remove', array(
 								'class'   => 'btn btn-warning btn-block btn-sm',
 								'onclick' => 'return confirm("Are you sure you want to remove?")'
 								)) !!}
