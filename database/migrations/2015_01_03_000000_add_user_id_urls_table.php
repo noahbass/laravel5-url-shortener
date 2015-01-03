@@ -13,7 +13,7 @@ class AddUserIdUrlsTable extends Migration {
     public function up()
     {
         Schema::table('urls', function(Blueprint $table) {
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
         });
     }
 
