@@ -17,6 +17,9 @@ Route::get('/', function() {
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::resource('panel', 'SlugController', array('except' => array('show')));
+
+	Route::get('/panel/csv', 'CsvController@text');
+	Route::get('/panel/csv/download', 'CsvController@download');
 });
 
 Route::get('{slug}', 'SlugController@show');
