@@ -143,7 +143,13 @@ class SlugController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$r = Urls::find($id);
+
+		if(Auth::user()->id === $r->user_id) {
+			$r->delete();
+		}
+
+		return redirect('panel');
 	}
 
 }
