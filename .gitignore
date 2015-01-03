@@ -10,3 +10,6 @@ adminer
 adminer.php
 
 *.sqlite
+
+*.iml
+.idea/
