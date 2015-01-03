@@ -10,13 +10,18 @@ class CsvController extends Controller {
 	/**
 	 * Create the csv sheet.
 	 */
-	public function create()
+	public function create($breaks = False)
 	{
 		$table = Urls::all();
 		$output = '';
 
 		foreach($table as $row) {
-			$output.=  implode(",",$row->toArray());
+			if($breaks) {
+				$output.=  implode(",",$row->toArray()) . "\n";
+			}
+			else {
+				$output.=  implode(",",$row->toArray());
+			}
 		}
 
 		return $output;
@@ -30,7 +35,7 @@ class CsvController extends Controller {
 	 */
 	public function text()
 	{
-		$output = $this->create();
+		$output = $this->create(True);
 		$headers = array('Content-Type' => 'text');
 
 		return Response::make(rtrim($output, "\n"), 200, $headers);
