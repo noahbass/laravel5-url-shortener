@@ -44,4 +44,6 @@
 		</tbody>
 	</table>
 
+	<p><a href="{{ URL::to('panel/csv') }}">download backup csv</a></p>
+
 @endsection
